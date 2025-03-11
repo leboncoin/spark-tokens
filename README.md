@@ -126,13 +126,13 @@ Finally, all those files are pushed to a branch into another repository called [
 
 Apply SVGO and then convert them to Android Vector Drawables.
 
-Push changes to the repo [Adevinta/spark-android](https://github.com/adevinta/spark-android/) in the branch "chore-updated-icons" with the same commit message.
+Push changes to the repo [leboncoin/spark-android](https://github.com/leboncoin/spark-android/) in the branch "chore-updated-icons" with the same commit message.
 
 ### UNDERSTANDING THE ICON SYNC PROCESS
 
 - **Spark Tokens**: This repo acts as the central repository and definitive source for all icons. Any updates to the icon collection originate here. When an update occurs on the `main` branch, the entire icon set is seamlessly distributed to both the Spark (web) and Spark Android repositories using [GitHub Actions](.github/workflows/).
 - [**Polaris web icons (web)**](https://github.com/adevinta/polaris-web-icons): Receives the icon set from Spark Tokens and converts them into React components, making them readily usable within web-based applications. A pull request is opened for developers to review, thanks to a [GitHub Action](https://github.com/adevinta/polaris-web-icons/blob/main/.github/workflows/pr-icon-update.yml).
-- [**Spark Android**](https://github.com/adevinta/spark-android): Receives Android Vector Drawables (AVDs) from Spark Tokens, ensuring compatibility and efficient integration into Android applications. A pull request is opened, thanks to a [GitHub Action](https://github.com/adevinta/spark-android/blob/main/.github/workflows/pr-icon-updates.yml).
+- [**Spark Android**](https://github.com/leboncoin/spark-android): Receives Android Vector Drawables (AVDs) from Spark Tokens, ensuring compatibility and efficient integration into Android applications. A pull request is opened, thanks to a [GitHub Action](https://github.com/leboncoin/spark-android/blob/main/.github/workflows/pr-icon-updates.yml).
 - [**Spark iOS**](https://github.com/adevinta/spark-ios): While not directly synced, Spark iOS relies on Spark Tokens as the primary source for icons. Manual integration is performed as needed to incorporate the latest icons in the iOS app.
 
 ## LICENSE

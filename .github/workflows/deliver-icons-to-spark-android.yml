@@ -1,4 +1,4 @@
-name: 📦 Deliver icons to Adevinta/spark-android
+name: 📦 Deliver icons to leboncoin/spark-android
 
 on:
   workflow_dispatch:
@@ -37,7 +37,7 @@ jobs:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY_SPARK_ANDROID }}
         with:
           source-directory: ${{ env.DIST }}
-          destination-github-username: "adevinta"
+          destination-github-username: "leboncoin"
           destination-repository-name: "spark-android"
           user-email: ${{ secrets.API_GITHUB_COMMIT_EMAIL }}
           commit-message: |
