@@ -19,20 +19,20 @@ jobs:
         with:
           submodules: true
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6.2.0
         with:
           node-version: lts/Hydrogen
           cache: "npm"
       - name: Install svgo
-        run: npm -g install svgo@3.0.5
+        run: npm -g install svgo@4.0.0
       - name: Cleanup dist
         run: |
           rm -rf "$DIST"
           mkdir -p "$DIST"
       - name: Run svg2avd.main.kts
-        run: ./spark-android/scripts/svg2avd/svg2avd.main.kts --input="assets/spark/icons" --output="$DIST" --precision=2 --prefix="spark_icons_" --copyright="spark-android/scripts/svg2avd/COPYRIGHT.xml"
+        run: ./spark-android/scripts/svg2avd/svg2avd.main.kts --input="assets/spark/icons" --output="$DIST" --precision=2 --prefix="spark_icons_lbc_" --copyright="spark-android/scripts/svg2avd/COPYRIGHT.xml"
       - name: Deliver Icons To Spark Android
-        uses: cpina/github-action-push-to-another-repository@v1.7.2
+        uses: cpina/github-action-push-to-another-repository@v1.7.3
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY_SPARK_ANDROID }}
         with:
@@ -46,4 +46,4 @@ jobs:
             See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: chore-updated-icons
           create-target-branch-if-needed: true
-          target-directory: "spark-icons/src/main/res/drawable"
+          target-directory: "spark-icons/icons"
